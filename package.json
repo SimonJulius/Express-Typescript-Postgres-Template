@@ -3,14 +3,35 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "start:dev": "npx nodemon",
+    "build": "rm -rf dist && tsc",
+    "lint": "eslint --ignore-path .gitignore --ext .ts  .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|js|json)\"",
+    "format": "yarn prettier -- --write",
+    "check-types": "tsc",
+    "check-format": "yarn prettier -- --list-different",
+    "validate": "yarn check-types && yarn check-format && yarn lint && yarn tsc -w"
   },
   "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.11",
+    "@types/http-errors": "^1.8.0",
+    "@types/morgan": "^1.9.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "eslint": "^7.20.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.28",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "eslint-config-prettier": "^7.2.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.5"
   }
 }
