@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "start:dev": "npx nodemon",
+    "migrate": "ts-node node_modules/node-pg-migrate/bin/node-pg-migrate --migration-file-language ts",
     "build": "rm -rf dist && tsc",
     "lint": "eslint --ignore-path .gitignore --ext .ts  .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|js|json)\"",
@@ -18,6 +19,8 @@
     "@types/express": "^4.17.11",
     "@types/http-errors": "^1.8.0",
     "@types/morgan": "^1.9.2",
+    "@types/pg": "^7.14.10",
+    "@types/uuid": "^8.3.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -25,7 +28,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "node-pg-migrate": "^5.9.0",
+    "pg": "^8.5.1",
+    "postgres": "^2.0.0-beta.4",
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.28",
